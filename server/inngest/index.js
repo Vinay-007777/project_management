@@ -4,7 +4,7 @@ import prisma from "../config/prisma.js";
 // Create a client to send and receive events
 export const inngest = new Inngest({ id: "project-management" });
 
-const syncUserCreaction=inngest.createFunction(
+const syncUserCreation=inngest.createFunction(
     {id:'sync-user-from-clerk'},
     {event:'clerk/user.created'},
     async({event})=>{
@@ -58,7 +58,7 @@ const syncUserUpdation=inngest.createFunction(
 
 // Create an empty array where we'll export future Inngest functions
 export const functions = [
-  syncUserCreaction,
+  syncUserCreation,
   syncUserDeletion,
   syncUserUpdation  
 ];
